@@ -14,3 +14,5 @@ What are the commands?
     !end - will end your option making
     
 !stop - Will end the poll(includes results) 
+
+!graph - Will give you a bar graph based on the results
