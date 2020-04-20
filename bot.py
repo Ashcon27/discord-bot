@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from matplotlib import pyplot as plt
 
 import discord
 from discord.ext import commands
@@ -90,6 +91,24 @@ async def update_results():
         except Exception as e:
             print(e)
             await asyncio.sleep(120)
+@bot.command(name="plot_directions", help="says the directions of how to use the plot function")
+async def direct(ctx):
+    await ctx.send("To use the plot function enter your values and names in the following format with spaces to separate the values: [number of people who chose option 1] [number of people who chose option 2] [option 1] [option 2] If a space is needed for a value use an underscore. Use ONLY numbers for the first two values. Use only this format (without the brackets) or the function will not return the desired results")
+
+@bot.command(name= "plot", help = "makes a pie chart with the first two values given")
+async def pplot(ctx, a, b, option1, option2):
+    plt.style.use("fivethirtyeight")
+    slices = [int(a), int(b)]
+    labels = [f"{option1}", f"{option2}"]
+    explode = [0.1, 0]
+    colors= ["pink", "teal"]
+    plt.pie(slices, labels =labels, colors = colors, wedgeprops = {"edgecolor":"black"}, explode =explode, shadow = True, autopct = "%1.1f%%")
+    plt.title(f"{option1.upper()} OR {option2.upper()}???")
+    plt.tight_layout()
+    plt.savefig("online.png")
+    file = discord.File("online.png", filename = "online.png")
+    await ctx.send("online.png", file=file)
+    plt.clf()
 
 
 bot.loop.create_task(update_results())
