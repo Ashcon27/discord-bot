@@ -19,6 +19,8 @@ What are the commands?
 
 !vote2 - Will vote for the second option
 
+!results - Will show the results
+
 !plot_directions - Will instruct you how to set up your plot function
 
 !plot - Will display beautiful pie chart
