@@ -20,6 +20,7 @@ What are the commands?
 !vote2 - Will vote for the second option
 
 !plot_directions - Will instruct you how to set up your plot function
+
 !plot - Will display beautiful pie chart
 
 Disclaimer the bot is already set for two minutes of voting time. It can be changed. Just go to bot.py and go to line 89 and 93 change the numbers which are in seconds. (60 = 1 min, 120 = 2 min, 180 = 3  min, etc)
